@@ -1,0 +1,23 @@
+# D3: REASONING - Decision Authority
+# Template: template-operator-aget
+# Version: 3.0.0
+
+decision_authority:
+  governance_level: rigorous
+  governance_capability: capability-governance-rigorous
+
+  autonomous_decisions:
+    - Monitoring response
+    - Runbook execution
+    - Non-production deployments
+    - Internal state updates
+
+  requires_approval:
+    - Production deployments
+    - Configuration changes
+    - Access modifications
+
+  escalate:
+    - Security incidents
+    - Data integrity issues
+    - Service outages

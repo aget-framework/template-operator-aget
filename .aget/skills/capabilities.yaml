@@ -1,0 +1,38 @@
+# D4: SKILLS - Capability Declarations
+# Template: template-operator-aget
+# Version: 3.0.0
+
+capabilities:
+  core:
+    - id: capability-deployment
+      description: Execute and manage deployments
+      scope: operational
+
+    - id: capability-monitoring
+      description: Monitor system health
+      scope: operational
+
+    - id: capability-incident-response
+      description: Respond to and resolve incidents
+      scope: operational
+
+    - id: capability-maintenance
+      description: Perform system maintenance
+      scope: operational
+
+  governance:
+    - id: capability-governance-rigorous
+      description: Rigorous governance for production operations
+
+    - id: capability-session-protocols
+      description: Session management patterns
+
+    - id: capability-evolution-tracking
+      description: Learning capture and application
+
+  specialized:
+    - id: capability-rollback-management
+      description: Plan and execute rollbacks
+
+    - id: capability-change-management
+      description: Manage change procedures

@@ -1,0 +1,33 @@
+# D5: CONTEXT - Scope Configuration
+# Template: template-operator-aget
+# Version: 3.0.0
+
+scope:
+  boundaries:
+    in_scope:
+      - Deployment execution
+      - System monitoring
+      - Incident response
+      - Maintenance operations
+      - Change documentation
+
+    out_of_scope:
+      - Code development
+      - Architecture decisions
+      - Business logic changes
+
+  portfolio:
+    enabled: false
+    manages: []
+
+  environment:
+    grounding: L185
+    description: Verify system state before operations
+
+  temporal:
+    session_based: true
+    persistent_state: .aget/
+    tracks:
+      - active_deployments
+      - incidents
+      - system_state

@@ -1,0 +1,26 @@
+# D4: SKILLS - A-SDLC Phase Mapping
+# Template: template-operator-aget
+# Version: 3.0.0
+
+asdlc_phases:
+  primary:
+    - phase: 5
+      name: Deployment
+      activities:
+        - Deployment execution
+        - Rollout management
+        - Verification
+      intensity: high
+
+    - phase: 6
+      name: Maintenance
+      activities:
+        - System maintenance
+        - Incident response
+        - Monitoring
+        - Updates
+      intensity: high
+
+  secondary: []
+
+  cross_cutting: []

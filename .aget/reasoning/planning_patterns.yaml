@@ -1,0 +1,35 @@
+# D3: REASONING - Planning Patterns
+# Template: template-operator-aget
+# Version: 3.0.0
+
+planning:
+  approach: procedural
+  style: runbook_driven
+
+  patterns:
+    deployment:
+      steps:
+        - Verify prerequisites
+        - Create rollback plan
+        - Execute deployment
+        - Verify deployment
+        - Monitor for issues
+      governance: change_management
+
+    incident_response:
+      steps:
+        - Acknowledge incident
+        - Assess impact
+        - Execute mitigation
+        - Communicate status
+        - Post-incident review
+      governance: incident_protocols
+
+  verification:
+    required:
+      - Rollback plan exists
+      - Prerequisites verified
+      - Changes documented
+    recommended:
+      - Peer verification
+      - Staged rollout

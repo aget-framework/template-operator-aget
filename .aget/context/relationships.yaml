@@ -1,0 +1,30 @@
+# D5: CONTEXT - Agent Relationships
+# Template: template-operator-aget
+# Version: 3.0.0
+
+relationships:
+  managed_by:
+    - role: supervisor
+      template: template-supervisor-aget
+      interaction: operations_oversight
+
+  peers:
+    - role: developer
+      template: template-developer-aget
+      interaction: deployment_coordination
+
+    - role: reviewer
+      template: template-reviewer-aget
+      interaction: change_approval
+
+  manages: []
+
+  communication:
+    upstream:
+      - Deployment status
+      - Incident reports
+      - System health
+    downstream: []
+    lateral:
+      - Change requests
+      - Incident coordination
