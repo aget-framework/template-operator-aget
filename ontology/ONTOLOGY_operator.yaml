@@ -1,0 +1,285 @@
+# ONTOLOGY: Operator Archetype v1.0
+# SKOS-aligned concept definitions for operations and incident management
+#
+# Archetype: operator
+# Created: 2026-02-14
+# Author: private-aget-framework-AGET
+# Format: SKOS-inspired YAML (aget-framework convention)
+# Concepts: 7
+# Project: ARC-001 (Archetype Customization v3.5)
+
+apiVersion: aget.framework/v1
+kind: OntologySpec
+metadata:
+  name: operator-archetype-ontology
+  version: 1.0.0
+  created: 2026-02-14
+  author: private-aget-framework-AGET
+  archetype: operator
+  description: >
+    Formal vocabulary for operator archetype agents. Defines concepts for
+    incident handling, runbook execution, and operational management.
+  extends: ONTOLOGY_personal_ai_systems_v1.0.yaml
+
+# ============================================================================
+# CONCEPT SCHEME
+# ============================================================================
+
+conceptScheme:
+  uri: aget:ontology/operator
+  prefLabel: Operator Archetype Ontology
+  definition: >
+    A vocabulary for describing operator agent capabilities including
+    incident response, runbook execution, and deployment management.
+  hasTopConcept:
+    - aget:archetype/operator/Incident
+    - aget:archetype/operator/Runbook
+    - aget:archetype/operator/Deployment
+  relatedScheme:
+    - aget:ontology/personal-ai-systems
+
+# ============================================================================
+# CONCEPTS
+# ============================================================================
+
+concepts:
+
+  # --------------------------------------------------------------------------
+  # Concept: Incident
+  # --------------------------------------------------------------------------
+  - id: OPS-001
+    uri: aget:archetype/operator/Incident
+    prefLabel: Incident
+    altLabel:
+      - Issue
+      - Problem
+      - Alert
+    definition: >
+      An unplanned interruption or degradation of service requiring
+      operational response.
+    scopeNote: >
+      Incidents have severity levels and require prioritized response.
+      Post-incident review identifies root causes and improvements.
+    theoreticalBasis:
+      primary: ITIL Incident Management
+      source: ITIL
+      reference: https://en.wikipedia.org/wiki/ITIL
+    broader: null
+    narrower: null
+    related:
+      - aget:archetype/operator/Response
+      - aget:archetype/operator/Root_Cause
+    enumValues:
+      - SEV1   # Critical, immediate response
+      - SEV2   # High, urgent response
+      - SEV3   # Medium, normal response
+      - SEV4   # Low, scheduled response
+    inScheme: aget:ontology/operator
+    cluster: Incident Management
+
+  # --------------------------------------------------------------------------
+  # Concept: Runbook
+  # --------------------------------------------------------------------------
+  - id: OPS-002
+    uri: aget:archetype/operator/Runbook
+    prefLabel: Runbook
+    altLabel:
+      - Playbook
+      - Procedure
+      - Operational_Procedure
+    definition: >
+      A documented set of procedures for handling specific operational
+      scenarios, enabling consistent and repeatable responses.
+    scopeNote: >
+      Runbooks reduce MTTR and enable delegation to less experienced
+      operators. Should be tested and kept current.
+    theoreticalBasis:
+      primary: Operations Documentation
+      source: Site Reliability Engineering
+    broader: null
+    narrower: null
+    related:
+      - aget:archetype/operator/Incident
+      - aget:archetype/operator/Response
+    example:
+      - "runbook_deploy_rollback.md"
+      - "runbook_database_restore.md"
+    inScheme: aget:ontology/operator
+    cluster: Operations
+
+  # --------------------------------------------------------------------------
+  # Concept: Deployment
+  # --------------------------------------------------------------------------
+  - id: OPS-003
+    uri: aget:archetype/operator/Deployment
+    prefLabel: Deployment
+    altLabel:
+      - Release
+      - Rollout
+      - Push
+    definition: >
+      The process of making a new version of software available in
+      a target environment.
+    scopeNote: >
+      Deployment strategies: blue-green, canary, rolling. Rollback
+      capability is essential for safe deployments.
+    theoreticalBasis:
+      primary: Continuous Deployment
+      source: DevOps
+      reference: https://en.wikipedia.org/wiki/Continuous_deployment
+    broader: null
+    narrower: null
+    related:
+      - aget:archetype/operator/Environment
+      - aget:archetype/operator/Rollback
+    enumValues:
+      - Staging     # Pre-production validation
+      - Production  # Live deployment
+      - Rollback    # Reverting to previous
+    inScheme: aget:ontology/operator
+    cluster: Operations
+
+  # --------------------------------------------------------------------------
+  # Concept: Environment
+  # --------------------------------------------------------------------------
+  - id: OPS-004
+    uri: aget:archetype/operator/Environment
+    prefLabel: Environment
+    altLabel:
+      - Stage
+      - Infrastructure
+      - Platform
+    definition: >
+      A configured set of resources (servers, databases, networks)
+      where software runs.
+    scopeNote: >
+      Environment parity between stages reduces deployment surprises.
+      Environment configuration should be version-controlled.
+    theoreticalBasis:
+      primary: Infrastructure as Code
+      source: DevOps
+    broader: null
+    narrower: null
+    related:
+      - aget:archetype/operator/Deployment
+    enumValues:
+      - Development  # Local development
+      - Testing      # Automated tests
+      - Staging      # Pre-production
+      - Production   # Live system
+    inScheme: aget:ontology/operator
+    cluster: Operations
+
+  # --------------------------------------------------------------------------
+  # Concept: Response
+  # --------------------------------------------------------------------------
+  - id: OPS-005
+    uri: aget:archetype/operator/Response
+    prefLabel: Response
+    altLabel:
+      - Incident_Response
+      - Action
+      - Remediation
+    definition: >
+      The actions taken to address an incident, including diagnosis,
+      mitigation, and resolution.
+    scopeNote: >
+      Response time (MTTR) is key operational metric. Effective response
+      follows runbooks and documents actions taken.
+    theoreticalBasis:
+      primary: Incident Response
+      source: NIST Incident Response
+    broader: null
+    narrower: null
+    related:
+      - aget:archetype/operator/Incident
+      - aget:archetype/operator/Runbook
+    inScheme: aget:ontology/operator
+    cluster: Incident Management
+
+  # --------------------------------------------------------------------------
+  # Concept: Root_Cause
+  # --------------------------------------------------------------------------
+  - id: OPS-006
+    uri: aget:archetype/operator/Root_Cause
+    prefLabel: Root_Cause
+    altLabel:
+      - RCA
+      - Root_Cause_Analysis
+      - Underlying_Cause
+    definition: >
+      The fundamental reason an incident occurred, as opposed to
+      symptoms or proximate causes.
+    scopeNote: >
+      5-Whys and fishbone diagrams are common RCA techniques. RCA
+      informs preventive measures.
+    theoreticalBasis:
+      primary: Root Cause Analysis
+      source: Quality Management
+      reference: https://en.wikipedia.org/wiki/Root_cause_analysis
+    broader: null
+    narrower: null
+    related:
+      - aget:archetype/operator/Incident
+    inScheme: aget:ontology/operator
+    cluster: Incident Management
+
+  # --------------------------------------------------------------------------
+  # Concept: Rollback
+  # --------------------------------------------------------------------------
+  - id: OPS-007
+    uri: aget:archetype/operator/Rollback
+    prefLabel: Rollback
+    altLabel:
+      - Revert
+      - Undo
+      - Recovery
+    definition: >
+      The process of reverting to a previous known-good state after
+      a failed deployment or incident.
+    scopeNote: >
+      AGET: Per L576, rollback plans required before releases.
+      Rollback capability is safety net for deployment risk.
+    theoreticalBasis:
+      primary: Release Management
+      source: Change Management
+    broader: null
+    narrower: null
+    related:
+      - aget:archetype/operator/Deployment
+      - aget:archetype/operator/Response
+    inScheme: aget:ontology/operator
+    cluster: Operations
+
+# ============================================================================
+# RELATIONSHIPS
+# ============================================================================
+
+relationships:
+  - subject: aget:archetype/operator/Response
+    predicate: skos:related
+    object: aget:archetype/operator/Incident
+    note: Response addresses incidents
+
+  - subject: aget:archetype/operator/Runbook
+    predicate: skos:related
+    object: aget:archetype/operator/Response
+    note: Runbooks guide response
+
+# ============================================================================
+# METADATA
+# ============================================================================
+
+provenance:
+  project: ARC-001
+  created: 2026-02-14
+  author: private-aget-framework-AGET
+  methodology: Derived from operator archetype OPERATOR_SPEC.md
+
+validation:
+  conceptCount: 7
+  clusters: 2
+  theoreticalGrounding: 100%
+  skosCompliance: partial
+
+# End of ONTOLOGY_operator.yaml
