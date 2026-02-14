@@ -1,83 +1,128 @@
-# AGET Operator Template
+# Template: Operator Agent
 
-> **Operations and infrastructure management template**
+> Maintain system health with incident handling and operational playbooks
 
-Part of the [AGET Framework](https://github.com/aget-framework) v3.5.0.
+**Version**: v3.5.0 | **Archetype**: Operator | **Skills**: 2 specialized + 13 universal
 
-## Archetype
+---
 
-**Operator** - Maintain system health through reliable operations and incident response.
+## Why Operator?
 
-- **Extends**: worker
-- **Governance**: Rigorous
-- **Primary A-SDLC Phases**: 5 (Deployment), 6 (Maintenance)
+The Operator archetype ensures **operational reliability** for systems and services. Unlike development-focused agents, operator agents specialize in:
 
-## Key Capabilities
+- **Incident response** — Handle issues with structured triage, investigation, and resolution
+- **Playbook execution** — Run standard operating procedures with tracking and verification
+- **System health** — Maintain operational continuity through proactive monitoring
 
-- Deployment and release management
-- Monitoring and observability
-- Incident response and resolution
-- System maintenance and optimization
+**For evaluators**: If you need an AI that can handle incidents methodically and execute operational procedures reliably, the Operator archetype brings SRE discipline to your workflow.
 
-## Inviolable
+---
 
-```
-INV-OPS-001: shall NOT execute Production_Change WITHOUT Rollback_Plan
-```
+## Skills
+
+Operator agents come with **2 archetype-specific skills** plus 13 universal AGET skills.
+
+### Archetype Skills
+
+| Skill | Description |
+|-------|-------------|
+| **aget-handle-incident** | Handle incidents with structured triage, impact assessment, and resolution tracking. Documents timeline and actions. |
+| **aget-run-playbook** | Execute operational playbooks with step verification and rollback options. Tracks completion and exceptions. |
+
+### Universal Skills
+
+All AGET agents include session management, knowledge capture, and health monitoring:
+
+- `aget-wake-up` / `aget-wind-down` — Session lifecycle
+- `aget-create-project` / `aget-review-project` — Project management
+- `aget-record-lesson` / `aget-capture-observation` — Learning capture
+- `aget-check-health` / `aget-check-kb` / `aget-check-evolution` — Health monitoring
+- `aget-propose-skill` / `aget-create-skill` — Skill development
+- `aget-save-state` / `aget-file-issue` — State and issue management
+
+---
+
+## Ontology
+
+Operator agents use a **formal vocabulary** of 7 concepts organized into 2 clusters:
+
+| Cluster | Concepts |
+|---------|----------|
+| **Incident Management** | Incident, Severity, Resolution, Timeline |
+| **Operations** | Playbook, Step, Runbook |
+
+This vocabulary enables precise communication about operational activities.
+
+See: [`ontology/ONTOLOGY_operator.yaml`](ontology/ONTOLOGY_operator.yaml)
+
+---
 
 ## Quick Start
 
-1. Clone this template
-2. Run instantiation script (see [Getting Started](docs/GETTING_STARTED.md))
-3. Configure for your operations domain
+```bash
+# 1. Clone the template
+git clone https://github.com/aget-framework/template-operator-aget.git my-operator-agent
+cd my-operator-agent
+
+# 2. Configure identity
+# Edit .aget/version.json:
+#   "agent_name": "my-operator-agent"
+#   "domain": "your-domain"
+
+# 3. Verify setup
+python3 -m pytest tests/ -v
+# Expected: All tests passing
+```
+
+### Try the Skills
+
+```bash
+# In Claude Code CLI
+/aget-handle-incident   # Respond to an incident
+/aget-run-playbook      # Execute operational procedure
+```
 
 ---
 
-## Specification
+## What Makes Operator Different
+
+| Aspect | Ad-hoc Response | Operator Agent |
+|--------|----------------|----------------|
+| **Incidents** | Reactive chaos | Structured triage and resolution |
+| **Procedures** | Manual steps | Verified playbook execution |
+| **Documentation** | Post-hoc | Real-time timeline |
+| **Rollback** | Improvised | Planned reversion paths |
+
+---
+
+## Framework Specification
 
 | Attribute | Value |
 |-----------|-------|
-| **Governed By** | [AGET_TEMPLATE_SPEC v3.1](https://github.com/aget-framework/aget/blob/main/specs/AGET_TEMPLATE_SPEC.md) |
-| **Foundation** | [WORKER_TEMPLATE_SPEC v1.0](https://github.com/aget-framework/aget/blob/main/specs/WORKER_TEMPLATE_SPEC_v1.0.yaml) |
+| **Framework** | [AGET v3.5.0](https://github.com/aget-framework/aget) |
 | **Archetype** | Operator |
-| **Extends** | Worker |
-| **Manifest Version** | 3.0 |
-| **Contract Tests** | 9 tests |
-
-### Key Capabilities
-
-| ID | Capability | Pattern |
-|----|------------|---------|
-| CAP-001 | Wake Protocol | event-driven |
-| CAP-009 | Wind Down Protocol | event-driven |
-| CAP-020 | Version Configuration | ubiquitous |
-| CAP-028 | Project Plan Pattern | event-driven |
-
-Validate compliance: `pytest tests/ -v`
-
-See: [Full specification](https://github.com/aget-framework/aget/tree/main/specs)
+| **Skills** | 15 total (2 archetype + 13 universal) |
+| **Ontology** | 7 concepts, 2 clusters |
+| **License** | Apache 2.0 |
 
 ---
 
-## Structure
+## Learn More
 
-```
-template-operator-aget/
-├── manifest.yaml          # Template configuration
-├── governance/            # Charter, Mission, Scope
-├── tests/                 # Contract tests
-└── .aget/                 # 5D Composition Architecture
-    ├── persona/           # D1: Identity
-    ├── memory/            # D2: Knowledge
-    ├── reasoning/         # D3: Decision-making
-    ├── skills/            # D4: Capabilities
-    └── context/           # D5: Relationships
-```
-
-## License
-
-Apache License 2.0 - See [LICENSE](LICENSE)
+- **[AGET Framework](https://github.com/aget-framework/aget)** — Core framework documentation
+- **[Archetype Guide](https://github.com/aget-framework/aget/blob/main/docs/ARCHETYPE_GUIDE.md)** — All 12 archetypes explained
+- **[Getting Started](https://github.com/aget-framework/aget/blob/main/docs/GETTING_STARTED.md)** — Full onboarding guide
 
 ---
 
-*AGET Framework - AI discovers patterns, you describe intent*
+## Related Archetypes
+
+| Archetype | Best For |
+|-----------|----------|
+| **[Worker](https://github.com/aget-framework/template-worker-aget)** | Task execution |
+| **[Developer](https://github.com/aget-framework/template-developer-aget)** | Code and build processes |
+| **[Supervisor](https://github.com/aget-framework/template-supervisor-aget)** | Fleet coordination |
+
+---
+
+**AGET Framework** | Apache 2.0 | [Issues](https://github.com/aget-framework/template-operator-aget/issues)
