@@ -2,7 +2,7 @@
 
 > **Operations and infrastructure management template**
 
-Part of the [AGET Framework](https://github.com/aget-framework) v3.0.0.
+Part of the [AGET Framework](https://github.com/aget-framework) v3.5.0.
 
 ## Archetype
 
