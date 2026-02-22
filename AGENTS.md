@@ -14,7 +14,7 @@ Works with Claude Code, Codex CLI, Gemini CLI, and other CLI coding agents.
 This template creates operator agents focused on maintaining system health through reliable operations and incident response.
 
 ## Project Context
-template-operator-aget - Operator AGET template - v3.5.0
+template-operator-aget - Operator AGET template - v3.6.0
 
 **Note**: Update this section when instantiating template:
 - Change project name to your operator agent name
