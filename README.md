@@ -16,6 +16,8 @@ The Operator archetype ensures **operational reliability** for systems and servi
 
 **For evaluators**: If you need an AI that can handle incidents methodically and execute operational procedures reliably, the Operator archetype brings SRE discipline to your workflow.
 
+**Domain knowledge that compounds**: Operator agents build persistent understanding of your operational environment — recurring incidents, effective runbooks, system dependencies, and resolution patterns. Unlike tools that start fresh each session, your agent accumulates operational context that makes each incident response faster and each playbook execution more reliable.
+
 ---
 
 ## Skills
@@ -92,6 +94,7 @@ python3 -m pytest tests/ -v
 | **Procedures** | Manual steps | Verified playbook execution |
 | **Documentation** | Post-hoc | Real-time timeline |
 | **Rollback** | Improvised | Planned reversion paths |
+| **Domain memory** | Starts fresh each session | Accumulates operational expertise over time |
 
 ---
 
