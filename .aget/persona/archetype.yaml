@@ -25,6 +25,8 @@ archetype:
     - Must follow change procedures
     - Rigorous approval for production
 
+  governance_intensity: rigorous
+
   theoretical_basis:
     primary: Site Reliability Engineering (reliability focus)
     secondary: Incident Management (structured response)
