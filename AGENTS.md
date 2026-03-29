@@ -85,6 +85,12 @@ When facing any substantial change or multi-step task:
 
 ---
 
+### Governance Capabilities
+
+| Attribute | Value |
+|-----------|-------|
+| Governance Intensity | Rigorous |
+
 ## Purpose
 
 > Maintain system health through reliable operations and incident response.
