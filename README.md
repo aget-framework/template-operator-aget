@@ -2,7 +2,7 @@
 
 > Maintain system health with incident handling and operational playbooks
 
-**Version**: v3.30.0 | **Archetype**: Operator | **Skills**: 2 specialized + 15 universal
+**Version**: v3.31.0 | **Archetype**: Operator | **Skills**: 2 specialized + 15 universal
 
 ---
 
