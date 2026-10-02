@@ -9,6 +9,10 @@
 - `scripts/study_topic.py`: when the score floor suppresses every hit, the report no longer prints "novel topic"; it states that suppressed hits exist.
 
 ### Changed
+- A compiled test file, `tests/__pycache__/test_contract.cpython-314-pytest-9.0.2.pyc`, tracked by mistake since 2026-03-28 and carrying the maintainer's local path, is no longer in the repository.
+- The 2026-04-12 migration record under `.aget/evolution/` no longer carries the maintainer's local home path: the backup path it records now starts with `~`.
+- `manifest.yaml` `template.version` now reads 3.36.0. It had stayed at 3.4.0 since January 2026 while the other version fields moved.
+- The project-context line in `AGENTS.md` now ends `v3.36.0`. It had stayed at `v3.13.0`.
 - Version alignment with framework v3.36.0 (`.aget/version.json`, `AGENTS.md`, `README.md`). The release's fleet migration kit is in the core repository (`aget-framework/aget`) and is not part of this template; this release adds no other template payload.
 - Not in this release: the repaired `scripts/close_authorization_guard.py`. This template still ships the guard at its 3.34.0 version; the repair is deferred to the next release. See `handoffs/CORRECTIONS_v3.35.0.md` rows 4 and 5 in `aget-framework/aget` for what to do until then.
 
