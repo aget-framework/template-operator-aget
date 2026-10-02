@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.36.0] - 2026-10-03 - "Fleet migration kit for supervisors"
+
+### Added
+- `LICENSE`: the Apache 2.0 license text the README declares.
+
+### Fixed
+- `scripts/study_topic.py`: when the score floor suppresses every hit, the report no longer prints "novel topic"; it states that suppressed hits exist.
+
+### Changed
+- Version alignment with framework v3.36.0 (`.aget/version.json`, `AGENTS.md`, `README.md`). The release's fleet migration kit is in the core repository (`aget-framework/aget`) and is not part of this template; this release adds no other template payload.
+- Not in this release: the repaired `scripts/close_authorization_guard.py`. This template still ships the guard at its 3.34.0 version; the repair is deferred to the next release. See `handoffs/CORRECTIONS_v3.35.0.md` rows 4 and 5 in `aget-framework/aget` for what to do until then.
+
 ## [3.35.1] - 2026-10-04 - "Weekly train"
 
 ### Fixed
